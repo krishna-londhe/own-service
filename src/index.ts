@@ -17,7 +17,7 @@ app.use("/api", routes);
 app.get("/", (req, res) => {
   res.json({
     success: true,
-    message: "Welcome to CRUD API Service",
+    message: "Welcome to CRUD API Service - Version 1.0.0",
     version: "1.0.0",
     endpoints: {
       health: "GET /api/health",
