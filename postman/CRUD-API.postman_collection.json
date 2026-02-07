@@ -1,0 +1,467 @@
+{
+  "info": {
+    "_postman_id": "crud-api-collection-2026",
+    "name": "CRUD API Service",
+    "description": "Complete CRUD API collection with dummy data endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "item": [
+    {
+      "name": "Health & Info",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "health"]
+            },
+            "description": "Check if server is running"
+          },
+          "response": []
+        },
+        {
+          "name": "API Info",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": ["{{baseUrl}}"],
+              "path": [""]
+            },
+            "description": "Get API information and available endpoints"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users - Read",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            },
+            "description": "Retrieve all users from the database"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            },
+            "description": "Retrieve a specific user by their ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID (2)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "2"]
+            },
+            "description": "Get Jane Smith (ID: 2)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID (3)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/3",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "3"]
+            },
+            "description": "Get Mike Johnson (ID: 3)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get User by ID (4)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/4",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "4"]
+            },
+            "description": "Get Sarah Williams (ID: 4)"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Non-Existent User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "999"]
+            },
+            "description": "Test error handling - user does not exist"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users - Create",
+      "item": [
+        {
+          "name": "Create New User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alice Brown\",\n  \"email\": \"alice@example.com\",\n  \"age\": 26\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            },
+            "description": "Create a new user in the system"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Another User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Bob Wilson\",\n  \"email\": \"bob@example.com\",\n  \"age\": 35\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            },
+            "description": "Create another new user"
+          },
+          "response": []
+        },
+        {
+          "name": "Create User - Missing Email (Error)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test User\",\n  \"age\": 25\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            },
+            "description": "Test validation - missing required email field"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users - Update",
+      "item": [
+        {
+          "name": "Update User (ID 1)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Updated\",\n  \"email\": \"john.updated@example.com\",\n  \"age\": 30\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            },
+            "description": "Update an existing user with new information"
+          },
+          "response": []
+        },
+        {
+          "name": "Update User - Partial (Name Only)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Doe Updated\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "2"]
+            },
+            "description": "Update only the name field of a user"
+          },
+          "response": []
+        },
+        {
+          "name": "Update User - Age Only",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"age\": 35\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/3",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "3"]
+            },
+            "description": "Update only the age field of a user"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Non-Existent User (Error)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Test\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "999"]
+            },
+            "description": "Test error handling - try to update non-existent user"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users - Delete",
+      "item": [
+        {
+          "name": "Delete User (ID 1)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            },
+            "description": "Delete an existing user from the system"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User (ID 2)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/2",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "2"]
+            },
+            "description": "Delete Jane Smith"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Non-Existent User (Error)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/999",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "999"]
+            },
+            "description": "Test error handling - try to delete non-existent user"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Testing Scenarios",
+      "item": [
+        {
+          "name": "Complete CRUD Flow - Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Complete Test User\",\n  \"email\": \"complete@example.com\",\n  \"age\": 28\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            },
+            "description": "Step 1: Create a user for the complete CRUD flow test"
+          },
+          "response": []
+        },
+        {
+          "name": "Complete CRUD Flow - Verify Creation",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            },
+            "description": "Step 2: Verify the user was created (should be in the list)"
+          },
+          "response": []
+        },
+        {
+          "name": "Complete CRUD Flow - Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Complete User\",\n  \"age\": 29\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "5"]
+            },
+            "description": "Step 3: Update the created user (use the ID from creation)"
+          },
+          "response": []
+        },
+        {
+          "name": "Complete CRUD Flow - Verify Update",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "5"]
+            },
+            "description": "Step 4: Verify the user was updated"
+          },
+          "response": []
+        },
+        {
+          "name": "Complete CRUD Flow - Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "5"]
+            },
+            "description": "Step 5: Delete the user"
+          },
+          "response": []
+        },
+        {
+          "name": "Complete CRUD Flow - Verify Deletion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "5"]
+            },
+            "description": "Step 6: Verify the user was deleted (should return 404)"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "default"
+    }
+  ]
+}
